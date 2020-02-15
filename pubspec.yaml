@@ -1,5 +1,5 @@
-name: coronastats
-description: A Flutter app which shows the statistics of the CoronaVirus.
+name: CoronaStats
+description: A Flutter app which shows the statistics of COVID-2019.
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
