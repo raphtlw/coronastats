@@ -6,7 +6,7 @@ I created this app because I couldn't find any good CoronaVirus tracking apps on
 
 ## Download
 
-The app can be downloaded from the [Github releases page]()
+The app can be downloaded from the [Github releases page](https://github.com/raphtlw/CoronaStats/releases)
 
 ## Authors / Credits
 
