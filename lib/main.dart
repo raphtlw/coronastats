@@ -1,3 +1,5 @@
+import 'package:CoronaStats/detailed_stats.dart';
+
 /// The main file which Flutter runs
 /// Github: https://github.com/raphtlw/CoronaStats
 
@@ -46,6 +48,15 @@ class _HomeState extends State<Home> {
               onTap: () {
                 setState(() {
                   body = Statistics();
+                });
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Detailed Statistics'),
+              onTap: () {
+                setState(() {
+                  body = DetailedStats();
                 });
                 Navigator.pop(context);
               },

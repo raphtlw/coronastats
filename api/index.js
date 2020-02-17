@@ -1,6 +1,6 @@
 const express = require('express');
 const cheerio = require('cheerio');
-const axios = require('axios').default;
+const fetch = require('node-fetch');
 const app = express();
 
 app.get('/', (req, res) => {
@@ -11,30 +11,29 @@ app.get('/beans', (req, res) => {
   res.send('<h1 style="font-family: sans-serif;">beans</h1>');
 });
 
-app.get('/corona-stats', (req, res) => {
-  (async () => {
-    const website = await axios.get(
-      'https://www.worldometers.info/coronavirus/'
-    );
+app.get('/stats', (req, res) => {
+  fetch('https://www.worldometers.info/coronavirus/')
+    .then(res => res.text())
+    .then(body => {
+      const $ = cheerio.load(body);
 
-    const $ = cheerio.load(website.data);
-    const mainCounterElements = $('div.maincounter-number span');
-    const cases = mainCounterElements[0].children[0].data;
-    const deaths = mainCounterElements[1].children[0].data;
-    const recovered = mainCounterElements[2].children[0].data;
+      const mainCounterElements = $('div.maincounter-number span');
 
-    console.log(cases);
-    console.log(deaths);
-    console.log(recovered);
+      const cases = mainCounterElements[0].children[0].data;
+      const deaths = mainCounterElements[1].children[0].data;
+      const recovered = mainCounterElements[2].children[0].data;
 
-    res.json({
-      cases: cases,
-      deaths: deaths,
-      recovered: recovered
+      console.log(cases);
+      console.log(deaths);
+      console.log(recovered);
+
+      return { cases: cases, deaths: deaths, recovered: recovered };
+    })
+    .then(data => {
+      res.json(data);
     });
-  })();
 });
 
-const PORT = process.env.PORT | 5000;
+const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
