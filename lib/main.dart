@@ -1,10 +1,6 @@
-import 'package:CoronaStats/detailed_stats.dart';
-
-/// The main file which Flutter runs
-/// Github: https://github.com/raphtlw/CoronaStats
-
 import 'package:flutter/material.dart';
 
+import 'detailed_stats.dart';
 import 'news.dart';
 import 'statistics.dart';
 
@@ -16,7 +12,7 @@ class CoronaStats extends StatelessWidget {
     return MaterialApp(
       title: 'CoronaStats',
       home: Home(),
-      theme: ThemeData(primaryColor: Colors.orange[200]),
+      theme: ThemeData(primaryColor: Colors.red[400]),
     );
   }
 }
@@ -40,8 +36,16 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-              child: Text('CoronaStats'),
-              decoration: BoxDecoration(color: Colors.orange[200]),
+              child: Text(
+                'CoronaStats',
+                style: TextStyle(color: Colors.white70),
+              ),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/statistics_dashboard.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
             ListTile(
               title: Text('Statistics'),
@@ -51,6 +55,7 @@ class _HomeState extends State<Home> {
                 });
                 Navigator.pop(context);
               },
+              trailing: Icon(Icons.arrow_right),
             ),
             ListTile(
               title: Text('Detailed Statistics'),
@@ -60,6 +65,7 @@ class _HomeState extends State<Home> {
                 });
                 Navigator.pop(context);
               },
+              trailing: Icon(Icons.arrow_right),
             ),
             ListTile(
               title: Text('News'),
@@ -69,6 +75,7 @@ class _HomeState extends State<Home> {
                 });
                 Navigator.pop(context);
               },
+              trailing: Icon(Icons.arrow_right),
             ),
           ],
         ),

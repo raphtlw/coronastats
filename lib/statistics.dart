@@ -1,6 +1,19 @@
 import 'package:flutter/material.dart';
 
-class Statistics extends StatelessWidget {
+class Statistics extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {}
+  _StatisticsState createState() => _StatisticsState();
+}
+
+class _StatisticsState extends State<Statistics> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Container(
+        child: Column(
+          children: <Widget>[],
+        ),
+      ),
+    );
+  }
 }
