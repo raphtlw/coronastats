@@ -1,3 +1,6 @@
+/// The main file which Flutter runs
+/// Github: https://github.com/raphtlw/CoronaStats
+
 import 'package:flutter/material.dart';
 
 import 'news.dart';
