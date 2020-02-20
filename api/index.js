@@ -17,17 +17,50 @@ app.get('/stats', (req, res) => {
     .then(body => {
       const $ = cheerio.load(body);
 
+      // Selector helpers
       const mainCounterElements = $('div.maincounter-number span');
+      const caseStatusElements = $('span.number-table');
+      const caseStatusMainElements = $('div.number-table-main');
 
+      // Overall cases
       const cases = mainCounterElements[0].children[0].data;
       const deaths = mainCounterElements[1].children[0].data;
       const recovered = mainCounterElements[2].children[0].data;
+      console.log(`Cases: ${cases}`);
+      console.log(`Deaths: ${deaths}`);
+      console.log(`Recovered: ${recovered}`);
 
-      console.log(cases);
-      console.log(deaths);
-      console.log(recovered);
+      // Active cases
+      const active = caseStatusMainElements[0].children[0].data;
+      const activeMild = caseStatusElements[0].children[0].data;
+      const activeSerious = caseStatusElements[1].children[0].data;
+      console.log(`Active infected cases: ${active}`);
+      console.log(`Active infected cases (mild): ${activeMild}`);
+      console.log(`Active infected cases (serious): ${activeSerious}`);
 
-      return { cases: cases, deaths: deaths, recovered: recovered };
+      // Closed cases
+      const closed = caseStatusMainElements[1].children[0].data;
+      const closedRecovered = caseStatusElements[2].children[0].data;
+      const closedDeaths = caseStatusElements[3].children[0].data;
+      console.log(`Closed cases: ${closed}`);
+      console.log(`Closed cases (recovered): ${closedRecovered}`);
+      console.log(`Closed cases (deaths): ${closedDeaths}`);
+
+      return {
+        cases: cases,
+        deaths: deaths,
+        recovered: recovered,
+        active: {
+          total: active,
+          mild: activeMild,
+          serious: activeSerious
+        },
+        closed: {
+          total: closed,
+          recovered: closedRecovered,
+          deaths: closedDeaths
+        }
+      };
     })
     .then(data => {
       res.json(data);

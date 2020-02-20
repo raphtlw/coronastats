@@ -15,6 +15,7 @@ class _StatisticsState extends State<Statistics> {
 
   @override
   void initState() {
+    super.initState();
     String url = 'https://coronastats-backend.herokuapp.com/stats';
     http.get(url).then((http.Response response) {
       print('Response: ' +
@@ -30,47 +31,56 @@ class _StatisticsState extends State<Statistics> {
     });
   }
 
+  Future<void> _refreshData() async {
+    print('Refreshing data');
+    initState();
+    print('Updated data');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff171717),
       body: Container(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.only(top: 18, left: 20, bottom: 6),
-              child: Text(
-                'Statistics',
-                style: TextStyle(
-                  color: Color(0xffDDDDDD),
-                  fontWeight: FontWeight.w500,
+        child: RefreshIndicator(
+          onRefresh: _refreshData,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                margin: EdgeInsets.only(top: 18, left: 20, bottom: 6),
+                child: Text(
+                  'Statistics',
+                  style: TextStyle(
+                    color: Color(0xffDDDDDD),
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textScaleFactor: 2,
                 ),
-                textScaleFactor: 2,
               ),
-            ),
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  DataTile(
-                    name: 'total confirmed',
-                    data: _totalConfirmed,
-                    textColor: Color(0xffFF6262),
-                  ),
-                  DataTile(
-                    name: 'total deaths',
-                    data: _totalDeaths,
-                    textColor: Color(0xffB9B9B9),
-                  ),
-                  DataTile(
-                    name: 'total recovered',
-                    data: _totalRecovered,
-                    textColor: Color(0xff71FFAE),
-                  ),
-                ],
+              Expanded(
+                child: ListView(
+                  children: <Widget>[
+                    DataTile(
+                      name: 'total confirmed',
+                      data: _totalConfirmed,
+                      textColor: Color(0xffFF6262),
+                    ),
+                    DataTile(
+                      name: 'total deaths',
+                      data: _totalDeaths,
+                      textColor: Color(0xffB9B9B9),
+                    ),
+                    DataTile(
+                      name: 'total recovered',
+                      data: _totalRecovered,
+                      textColor: Color(0xff71FFAE),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
