@@ -8,10 +8,19 @@ class Statistics extends StatefulWidget {
   _StatisticsState createState() => _StatisticsState();
 }
 
+// TODO Add the expanding widget for details about the case
 class _StatisticsState extends State<Statistics> {
   String _totalConfirmed;
   String _totalDeaths;
   String _totalRecovered;
+  String _totalActive;
+  String _totalActiveMild;
+  String _totalActiveSerious;
+  String _totalClosed;
+  String _totalClosedRecovered;
+  String _totalClosedDeaths;
+
+  Widget _detailsWidget;
 
   @override
   void initState() {
@@ -27,6 +36,12 @@ class _StatisticsState extends State<Statistics> {
         _totalConfirmed = responseJson['cases'];
         _totalDeaths = responseJson['deaths'];
         _totalRecovered = responseJson['recovered'];
+        _totalActive = responseJson['active']['total'];
+        _totalActiveMild = responseJson['active']['mild'];
+        _totalActiveSerious = responseJson['active']['serious'];
+        _totalClosed = responseJson['closed']['total'];
+        _totalClosedRecovered = responseJson['closed']['recovered'];
+        _totalClosedDeaths = responseJson['closed']['deaths'];
       });
     });
   }
@@ -76,6 +91,31 @@ class _StatisticsState extends State<Statistics> {
                       data: _totalRecovered,
                       textColor: Color(0xff71FFAE),
                     ),
+                    DataTile(
+                      name: 'active',
+                      data: _totalActive,
+                      textColor: Color(0xffFFD371),
+                      onTap: () {
+                        setState(() {
+                          if (_detailsWidget != null) {
+                            _detailsWidget = null;
+                          } else {
+                            _detailsWidget = Text(
+                              'test',
+                              style: TextStyle(color: Colors.white),
+                            );
+                          }
+                        });
+                      },
+                    ),
+                    Container(
+                      child: _detailsWidget,
+                    ),
+                    DataTile(
+                      name: 'closed',
+                      data: _totalClosed,
+                      textColor: Color(0xff71E5FF),
+                    ),
                   ],
                 ),
               ),
@@ -87,62 +127,71 @@ class _StatisticsState extends State<Statistics> {
   }
 }
 
+/// Contains data and statistics to be displayed.
 class DataTile extends StatelessWidget {
   String data;
   String name;
   Color textColor;
+  Function onTap;
 
-  DataTile(
-      {@required this.name, @required this.data, @required this.textColor});
+  DataTile({
+    @required this.name,
+    @required this.data,
+    @required this.textColor,
+    this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
+    return GestureDetector(
+      onTap: onTap,
       child: Container(
+        margin: EdgeInsets.symmetric(vertical: 10, horizontal: 18),
         child: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xff3B3B3B),
-                Color(0xff1C1C1C),
-              ],
-            ),
-            borderRadius: BorderRadius.circular(10),
-          ),
-          height: MediaQuery.of(context).size.height * 0.25,
-          width: MediaQuery.of(context).size.width * 1,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                margin: EdgeInsets.only(top: 16, left: 16),
-                child: Text(
-                  name.toUpperCase(),
-                  style: TextStyle(
-                    letterSpacing: 5,
-                    color: Color(0xffD0D0D0),
-                    fontWeight: FontWeight.w700,
-                  ),
-                  textScaleFactor: 0.8,
-                ),
+          child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  Color(0xff3B3B3B),
+                  Color(0xff1C1C1C),
+                ],
               ),
-              Center(
-                child: Container(
-                  margin: EdgeInsets.all(36),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            height: MediaQuery.of(context).size.height * 0.25,
+            width: MediaQuery.of(context).size.width * 1,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Container(
+                  margin: EdgeInsets.only(top: 16, left: 16),
                   child: Text(
-                    data ??= '',
+                    name.toUpperCase(),
                     style: TextStyle(
-                      color: textColor,
+                      letterSpacing: 5,
+                      color: Color(0xffD0D0D0),
                       fontWeight: FontWeight.w700,
                     ),
-                    textScaleFactor: 3.5,
+                    textScaleFactor: 0.8,
                   ),
                 ),
-              ),
-            ],
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.all(36),
+                    child: Text(
+                      data ??= '',
+                      style: TextStyle(
+                        color: textColor,
+                        fontWeight: FontWeight.w700,
+                      ),
+                      textScaleFactor: 3.5,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
