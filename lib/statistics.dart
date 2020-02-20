@@ -9,6 +9,7 @@ class Statistics extends StatefulWidget {
 }
 
 // TODO Add the expanding widget for details about the case
+// TODO Make the statistic number centered properly on pixel
 class _StatisticsState extends State<Statistics> {
   String _totalConfirmed;
   String _totalDeaths;
