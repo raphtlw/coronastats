@@ -6,7 +6,7 @@ I created this app because I couldn't find any good Corona Virus tracking apps o
 
 ## Download
 
-The app can be downloaded from the [Play Store]()
+<!-- The app can be downloaded from the [Play Store]() -->
 
 ## Authors / Credits
 
