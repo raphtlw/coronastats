@@ -1,5 +1,5 @@
 {
-  "name": "coronastats_backend",
+  "name": "coronastats-backend",
   "version": "1.0.0",
   "description": "A REST API for the CoronaStats app.",
   "main": "index.js",

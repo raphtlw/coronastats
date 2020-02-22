@@ -1,4 +1,4 @@
-name: CoronaStats
+name: coronastats
 description: A Flutter app which shows the statistics of COVID-2019.
 
 # The following defines the version and build number for your application.
@@ -26,7 +26,6 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_launcher_icons: "^0.7.3"
   
 flutter_icons:
