@@ -1,7 +1,7 @@
 # CoronaStats
 
 <!-- Badges -->
-![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)&nbsp;&nbsp;&nbsp;&nbsp;![build](https://img.shields.io/badge/Build-passed-green?style=for-the-badge)
+[![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)](https://github.com/raphtlw)&nbsp;&nbsp;&nbsp;&nbsp;![build](https://img.shields.io/badge/Build-passed-green?style=for-the-badge)
 
 A Flutter app which shows the statistics of the Corona Virus.
 
@@ -14,7 +14,7 @@ The app can be downloaded from the [Github Releases](https://github.com/raphtlw/
 
 *Please note that downloading the app from the releases page will cause a popup to show where Google says the app may be "insecure". Just ignore that popup. This is only because I didn't release the app to the app store. Feel free to check out the source code to see if the app is insecure for yourself.*
 
-[![download](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://github.com/raphtlw/coronastats/releases/tag/0.3.0)
+[![download](https://img.shields.io/badge/Direct_download-blue?style=for-the-badge)](https://github.com/raphtlw/coronastats/releases/download/0.3.0/coronastats.apk)
 
 ## Authors / Credits
 
