@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'detailed_stats.dart';
 import 'news.dart';
 import 'statistics.dart';
 
-void main() => runApp(CoronaStats());
+void main() => runApp(MainApp());
 
-class CoronaStats extends StatelessWidget {
+class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -52,16 +51,6 @@ class _HomeState extends State<Home> {
               onTap: () {
                 setState(() {
                   body = Statistics();
-                });
-                Navigator.pop(context);
-              },
-              trailing: Icon(Icons.arrow_right),
-            ),
-            ListTile(
-              title: Text('Detailed Statistics'),
-              onTap: () {
-                setState(() {
-                  body = DetailedStats();
                 });
                 Navigator.pop(context);
               },
