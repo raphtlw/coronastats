@@ -14,7 +14,7 @@ The app can be downloaded from the [Github Releases](https://github.com/raphtlw/
 
 *Please note that downloading the app from the releases page will cause a popup to show where Google says the app may be "insecure". Just ignore that popup. This is only because I didn't release the app to the app store. Feel free to check out the source code to see if the app is insecure for yourself.*
 
-![download](https://img.shields.io/badge/Download-blue?style=for-the-badge&link=https://github.com/raphtlw/coronastats/releases/tag/0.3.0)
+[![download](https://img.shields.io/badge/Download-blue?style=for-the-badge)](https://github.com/raphtlw/coronastats/releases/tag/0.3.0)
 
 ## Authors / Credits
 
