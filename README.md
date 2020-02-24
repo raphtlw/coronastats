@@ -1,5 +1,7 @@
 # CoronaStats
 
+<a class="github-button" href="https://github.com/raphtlw" data-size="large" aria-label="Follow @raphtlw on GitHub">Follow @raphtlw</a>
+
 A Flutter app which shows the statistics of the Corona Virus.
 
 I created this app because I couldn't find any good Corona Virus tracking apps on the play store, some were either filled with ads or the design was too messy.
@@ -7,6 +9,11 @@ I created this app because I couldn't find any good Corona Virus tracking apps o
 ## Download
 
 <!-- The app can be downloaded from the [Play Store]() -->
+The app can be downloaded from the [Github Releases](https://github.com/raphtlw/coronastats/releases) page
+
+> Please note that downloading the app from the releases page will cause a popup to show where Google says the app may be "insecure". Just ignore that popup.
+
+### [Direct download](https://github.com/raphtlw/coronastats/releases/tag/0.3.0)
 
 ## Authors / Credits
 
