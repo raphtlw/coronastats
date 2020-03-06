@@ -3,7 +3,7 @@
 <!-- Badges -->
 [![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)](https://github.com/raphtlw)&nbsp;&nbsp;&nbsp;&nbsp;![build](https://img.shields.io/badge/Build-passed-green?style=for-the-badge)
 
-A Flutter app which shows the statistics of the Corona Virus.
+A small app project which shows the statistics of the Corona Virus.
 
 I created this app because I couldn't find any good Corona Virus tracking apps on the play store, some were either filled with ads or the design was too messy.
 
