@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
-import './Statistics.css';
+import styles from '../App.module.css';
 
 export default class App extends Component {
   render() {
     return (
-      <div className="main-div">
-        <h1 className="header">{this.props.name}</h1>
-        <div className="center-data">
-          <h2 className="data" style={{ color: this.props.color }}>
-            {this.props.data}
-          </h2>
-        </div>
+      <div>
+        <h1 className={styles.name}>{this.props.name}</h1>
+        <h2 className={styles.data}>{this.props.data}</h2>
       </div>
     );
   }

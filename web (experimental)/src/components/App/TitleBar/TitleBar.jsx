@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import './TitleBar.css';
+import styles from '../App.module.css';
 
 export default class TitleBar extends Component {
   render() {
     return (
-      <div className="title-div">
-        <h1 className="title">CoronaStats</h1>
+      <div>
+        <h1 className={styles.mainTitle}>CoronaStats</h1>
+        <p className={styles.mainDescription}>
+          A simple web app showing the statistics of COVID-19.
+        </p>
       </div>
     );
   }

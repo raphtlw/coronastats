@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
-import './App.css';
+import styles from './App.module.css';
 import Spacing from './Spacing/Spacing';
 import Statistics from './Statistics';
 import TitleBar from './TitleBar';
@@ -34,43 +34,33 @@ export default class App extends Component {
   render() {
     return (
       <div>
-        <MediaQuery minDeviceWidth={1224}>
-          <h1>Desktop</h1>
-        </MediaQuery>
+        {/* Mobile */}
         <MediaQuery maxDeviceWidth={1224}>
-          <div className="statistics">
-            <Statistics
-              name="total confirmed"
-              data={this.state.stats.cases.toString()}
-              color="#ff6262"
-            />
-            <Spacing />
-            <Statistics
-              name="total deaths"
-              data={this.state.stats.deaths.toString()}
-            />
-            <Spacing />
-            <Statistics
-              name="total recovered"
-              data={this.state.stats.recovered.toString()}
-              color="#71ffae"
-            />
-            <Spacing />
-            <Statistics
-              name="active"
-              data={this.state.stats.active.toString()}
-              color="#ffd371"
-            />
-            <Spacing />
-            <Statistics
-              name="closed"
-              data={this.state.stats.closed.toString()}
-              color="#71e5ff"
-            />
-            <Spacing />
-          </div>
+          <TitleBar />
+          <Spacing />
+          <Statistics
+            name="total confirmed"
+            data={this.state.stats.cases.toString()}
+          />
+          <Spacing />
+          <Statistics name="deaths" data={this.state.stats.deaths.toString()} />
+          <Spacing />
+          <Statistics
+            name="recovered"
+            data={this.state.stats.recovered.toString()}
+          />
+          <Spacing />
+          <Statistics name="active" data={this.state.stats.active.toString()} />
+          <Spacing />
+          <Statistics name="closed" data={this.state.stats.closed.toString()} />
+          <Spacing />
         </MediaQuery>
-        <TitleBar />
+        {/* Desktop */}
+        <MediaQuery minDeviceWidth={1224}>
+          <h1 style={{ color: 'white' }}>
+            Not supported for desktop yet. Please view on a mobile device :)
+          </h1>
+        </MediaQuery>
       </div>
     );
   }
