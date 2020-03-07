@@ -5,16 +5,11 @@
 
 A small app project which shows the statistics of the Corona Virus.
 
-I created this app because I couldn't find any good Corona Virus tracking apps on the play store, some were either filled with ads or the design was too messy.
+I created this app because I couldn't find any good Corona Virus tracking apps for mobile devices, some were either filled with ads or the design was too messy.
 
-## Download
+## Link to app
 
-<!-- The app can be downloaded from the [Play Store]() -->
-The app can be downloaded from the [Github Releases](https://github.com/raphtlw/coronastats/releases) page
-
-*Please note that downloading the app from the releases page will cause a popup to show where Google says the app may be "insecure". Just ignore that popup. This is only because I didn't release the app to the app store. Feel free to check out the source code to see if the app is insecure for yourself.*
-
-[![download](https://img.shields.io/badge/Direct_download-blue?style=for-the-badge)](https://github.com/raphtlw/coronastats/releases/download/0.3.0/coronastats.apk)
+To use the app, just go to [coronastats.now.sh](https://coronastats.now.sh)
 
 ## Authors / Credits
 
