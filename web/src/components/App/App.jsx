@@ -1,10 +1,11 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
-import styles from './App.module.css';
+import './App.module.css';
 import Spacing from './Spacing/Spacing';
 import Statistics from './Statistics';
 import TitleBar from './TitleBar';
+import InstallAppButton from './InstallAppButton/InstallAppButton';
 
 export default class App extends Component {
   state = {
