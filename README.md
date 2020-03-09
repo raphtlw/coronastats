@@ -7,10 +7,6 @@ A small web app which shows the statistics of the Corona Virus.
 
 I created this app because I couldn't find any good Corona Virus tracking apps for mobile devices, some were either filled with ads or the interface was too messy.
 
-## App
-
-To use the app, just go to [coronastats.now.sh](https://coronastats.now.sh)
-
 ## Authors/Credits
 
 ### Main developer
