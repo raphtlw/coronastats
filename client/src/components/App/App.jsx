@@ -2,10 +2,10 @@ import Axios from 'axios';
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
 import './App.module.css';
-import Spacing from './Spacing/Spacing';
+import Spacing from './Spacing';
 import Statistics from './Statistics';
 import TitleBar from './TitleBar';
-import InstallAppButton from './InstallAppButton/InstallAppButton';
+import DetailedStatistics from './DetailedStatistics/DetailedStatistics';
 
 export default class App extends Component {
   state = {
@@ -23,7 +23,13 @@ export default class App extends Component {
         recovered: '',
         deaths: ''
       }
-    }
+    },
+    detailsShown: false
+  };
+
+  toggleDetails = () => {
+    const { detailsShown } = this.state;
+    this.setState({ detailsShown: !detailsShown });
   };
 
   componentDidMount() {
@@ -33,6 +39,7 @@ export default class App extends Component {
   }
 
   render() {
+    const { detailsShown } = this.state;
     return (
       <div>
         {/* Mobile */}
@@ -41,19 +48,63 @@ export default class App extends Component {
           <Spacing />
           <Statistics
             name="total confirmed"
-            data={this.state.stats.cases.toString()}
+            data={this.state.stats.cases}
+            color="#FF6262"
           />
           <Spacing />
-          <Statistics name="deaths" data={this.state.stats.deaths.toString()} />
+          <Statistics name="deaths" data={this.state.stats.deaths} />
           <Spacing />
           <Statistics
             name="recovered"
-            data={this.state.stats.recovered.toString()}
+            data={this.state.stats.recovered}
+            color="#71FFAE"
           />
           <Spacing />
-          <Statistics name="active" data={this.state.stats.active.toString()} />
+          <Statistics
+            name="active"
+            data={this.state.stats.active.total}
+            color="#FFD371"
+            onClick={this.toggleDetails}
+          />
+          {detailsShown && (
+            <div>
+              <Spacing height="1.2rem" />
+              <DetailedStatistics
+                name="mild"
+                data={this.state.stats.active.mild}
+                color="#FFD371"
+              />
+              <Spacing height="1.2rem" />
+              <DetailedStatistics
+                name="serious"
+                data={this.state.stats.active.serious}
+                color="#FFD371"
+              />
+            </div>
+          )}
           <Spacing />
-          <Statistics name="closed" data={this.state.stats.closed.toString()} />
+          <Statistics
+            name="closed"
+            data={this.state.stats.closed.total}
+            color="#71E5FF"
+            onClick={this.toggleDetails}
+          />
+          {detailsShown && (
+            <div>
+              <Spacing height="1.2rem" />
+              <DetailedStatistics
+                name="recovered"
+                data={this.state.stats.closed.recovered}
+                color="#71E5FF"
+              />
+              <Spacing height="1.2rem" />
+              <DetailedStatistics
+                name="deaths"
+                data={this.state.stats.closed.deaths}
+                color="#71E5FF"
+              />
+            </div>
+          )}
           <Spacing />
         </MediaQuery>
         {/* Desktop */}

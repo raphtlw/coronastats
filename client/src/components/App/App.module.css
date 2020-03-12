@@ -20,27 +20,6 @@ https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400
   background-color: #1c1c1c;
 }
 
-.name,
-.data {
-  font-family: 'Roboto Mono', monospace;
-  color: var(--text-color);
-}
-
-.name {
-  font-weight: 500;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-}
-
-.data {
-  font-weight: 400;
-  font-size: 2.2rem;
-}
-
-.spacing {
-  height: 2.8rem;
-}
-
 .mainTitle {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
@@ -54,4 +33,38 @@ https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400
   font-size: 1rem;
   color: var(--text-color);
   margin-top: 0.2rem;
+}
+
+.name,
+.detailsName,
+.data,
+.detailsData {
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-color);
+}
+
+.name {
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.detailsName {
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.data {
+  font-weight: 400;
+  font-size: 2.2rem;
+}
+
+.detailsData {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.spacing {
+  height: 2.8rem;
 }
