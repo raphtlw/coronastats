@@ -19,4 +19,4 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy
-        run: git subtree push --prefix=server/ https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
+        run: git -v subtree push --prefix server/ https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
