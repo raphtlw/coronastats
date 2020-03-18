@@ -1,0 +1,83 @@
+/*
+Fonts
+https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400;500&sidebar.open
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto+Mono:wght@400;500&display=swap');
+
+:global(:root) {
+  --text-color: #f9f9f9;
+}
+
+:global(*) {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:global(body) {
+  margin: 1rem 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #1c1c1c;
+}
+
+.mainTitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--text-color);
+}
+
+.mainDescription {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 400;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-top: 0.2rem;
+}
+
+.name,
+.detailsName,
+.data,
+.detailsData {
+  font-family: 'Roboto Mono', monospace;
+  color: var(--text-color);
+}
+
+.name {
+  font-weight: 500;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+.detailsName {
+  font-weight: 500;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.data {
+  font-weight: 400;
+  font-size: 2.2rem;
+}
+
+.detailsData {
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.detailedStatisticsWrapper {
+  overflow-y: hidden;
+}
+
+.spacing {
+  height: 2.8rem;
+}
+
+.tapMe {
+  float: right;
+  margin-top: 1.4rem;
+  margin-right: 3.6rem;
+  color: var(--text-color);
+  font-weight: 400;
+  font-size: 1rem;
+}
