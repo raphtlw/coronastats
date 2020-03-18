@@ -20,5 +20,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Deploy
         run: |
-          git subtree pull --allow-unrelated-histories --prefix server https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
+          git config --global user.name "Raphael Tang"
+          git config --global user.email raphpb1912@gmail.com
           git subtree push --prefix server https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
