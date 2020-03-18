@@ -1,7 +1,7 @@
 # CoronaStats
 
 <!-- Badges -->
-[![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)](https://github.com/raphtlw)&nbsp;&nbsp;&nbsp;&nbsp;![build](https://img.shields.io/badge/Build-passed-green?style=for-the-badge)
+[![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)](https://github.com/raphtlw)&nbsp;&nbsp;&nbsp;&nbsp; ![build](https://img.shields.io/badge/Build-passed-green?style=for-the-badge)
 
 A small web app which shows the statistics of the Corona Virus.
 
