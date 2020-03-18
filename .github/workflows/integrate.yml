@@ -11,13 +11,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy
-        run: now client --prod -t ${{ secrets.ZEIT_TOKEN }}
+        run: now client --confirm --prod -t ${{ secrets.ZEIT_TOKEN }}
   
   deploy-to-heroku:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name:
-        run: |
-          git subtree push --prefix server https://git.heroku.com/coronastats-backend.git master
+      - name: Deploy
+        run: git subtree push --prefix server https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git origin/master:master
