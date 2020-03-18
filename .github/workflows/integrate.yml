@@ -1,0 +1,23 @@
+name: Node Continuous Integration
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy-to-now:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Deploy
+        run: now client --prod -t ${{ secrets.ZEIT_TOKEN }}
+  
+  deploy-to-heroku:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name:
+        run: |
+          git subtree push --prefix server https://git.heroku.com/coronastats-backend.git master
