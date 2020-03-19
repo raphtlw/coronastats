@@ -2,16 +2,33 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="%PUBLIC_URL%/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="%PUBLIC_URL%/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="%PUBLIC_URL%/favicon-16x16.png"
+    />
+    <title>CoronaStats</title>
     <meta
       name="description"
       content="Efficient and beautiful statistics for COVID-19"
     />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>CoronaStats</title>
-    <script async="true">
+    <!-- <script async="true">
       let deferredPrompt;
 
       window.addEventListener('beforeInstallPrompt', e => {
@@ -22,11 +39,7 @@
         // Update UI notify the user they can install the PWA
         showInstallPromotion();
       });
-
-      window.addEventListener('appinstalled', e => {
-        console.log('App installed');
-      });
-    </script>
+    </script> -->
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>

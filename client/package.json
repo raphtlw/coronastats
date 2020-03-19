@@ -6,6 +6,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.4.1",
     "@testing-library/user-event": "^7.2.1",
+    "a11y-react-emoji": "^1.1.2",
     "axios": "^0.19.2",
     "react": "^16.12.0",
     "react-add-to-homescreen": "^1.1.0",

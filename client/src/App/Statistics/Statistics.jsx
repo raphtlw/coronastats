@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styles from '../App.module.css';
+import Emoji from 'a11y-react-emoji';
 
 export default class App extends Component {
   render() {
@@ -9,7 +10,8 @@ export default class App extends Component {
           style={{ visibility: this.props.tapMe ? 'visible' : 'hidden' }}
           className={styles.tapMe}
         >
-          👈&nbsp;&nbsp;&nbsp;&nbsp;Tap this
+          <Emoji symbol='👈' label='point left' />
+          &nbsp;&nbsp;&nbsp;&nbsp;Tap this
         </h3>
         <h1 className={styles.name}>{this.props.name}</h1>
         <h2 className={styles.data} style={{ color: this.props.color }}>

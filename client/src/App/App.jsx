@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
+import AddToHomescreen from 'react-add-to-homescreen';
 import './App.module.css';
 import DetailedStatistics from './DetailedStatistics';
 import Spacing from './Spacing';
@@ -28,6 +29,13 @@ export default class App extends Component {
     detailsShown1: false,
     detailsShown2: false,
     tapMe: true
+  };
+
+  handleAddToHomescreenClick = () => {
+    alert(`
+      1. Open Share menu
+      2. Tap on "Add to homescreen" button
+    `);
   };
 
   toggleDetails1 = () => {
@@ -107,6 +115,9 @@ export default class App extends Component {
             />
           </DetailedStatisticsWrapper>
           <Spacing />
+          <AddToHomescreen
+            onAddToHomescreenClick={this.handleAddToHomescreenClick}
+          />
         </MediaQuery>
         {/* Desktop */}
         <MediaQuery minDeviceWidth={1224}>
