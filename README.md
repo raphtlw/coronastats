@@ -1,7 +1,7 @@
 # CoronaStats
 
 <!-- Badges -->
-[![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)](https://github.com/raphtlw) ![GitHub repo size](https://img.shields.io/github/repo-size/raphtlw/coronastats?color=blue&style=for-the-badge) ![GitHub contributors](https://img.shields.io/github/contributors/raphtlw/coronastats?style=for-the-badge) ![GitHub Deployment Status](https://img.shields.io/github/workflow/status/raphtlw/coronastats/Node%20Continuous%20Integration?label=actions&logo=github&style=for-the-badge)
+[![author](https://img.shields.io/badge/Author-raphtlw-lightgrey?style=for-the-badge)](https://github.com/raphtlw)  ![GitHub repo size](https://img.shields.io/github/repo-size/raphtlw/coronastats?color=blue&style=for-the-badge)  ![GitHub contributors](https://img.shields.io/github/contributors/raphtlw/coronastats?style=for-the-badge)  ![GitHub Deployment Status](https://img.shields.io/github/workflow/status/raphtlw/coronastats/Node%20Continuous%20Integration?label=actions&logo=github&style=for-the-badge)
 
 A small web app which shows the statistics of the Corona Virus.
 
