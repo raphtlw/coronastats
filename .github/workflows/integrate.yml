@@ -22,7 +22,7 @@ jobs:
         run: |
           cd server
           git init
-          git add .
+          git commit -am "deploy"
           git push --force https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
           rm -rf .git
           cd ..
