@@ -19,4 +19,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Deploy
-        run: git push https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git `git subtree split --prefix server/ master`:master --force
+        run: |
+          cd server
+          git init
+          git add .
+          git push --force https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
+          rm -rf .git
+          cd ..
