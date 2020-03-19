@@ -9,8 +9,8 @@
     "a11y-react-emoji": "^1.1.2",
     "axios": "^0.19.2",
     "react": "^16.12.0",
-    "react-add-to-homescreen": "^1.1.0",
     "react-dom": "^16.12.0",
+    "react-ios-pwa-prompt": "^1.6.0",
     "react-responsive": "^8.0.3",
     "react-scripts": "3.4.0",
     "react-spring": "^8.0.27"
