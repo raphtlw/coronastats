@@ -22,6 +22,8 @@ jobs:
         run: |
           cd server
           git init
+          git config user.name "Raphael Tang"
+          git config user.email "raphpb1912@gmail.com"
           git commit -am "deploy"
           git push --force https://heroku:${{ secrets.HEROKU_API_KEY }}@git.heroku.com/coronastats-backend.git master
           rm -rf .git
