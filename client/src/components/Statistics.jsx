@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import styles from '../App.module.css';
 import Emoji from 'a11y-react-emoji';
+
+import styles from '../styles.module.css';
 
 export default class App extends Component {
   render() {

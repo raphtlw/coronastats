@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styles from '../App.module.css';
+
+import styles from '../styles.module.css';
 
 export default class Spacing extends Component {
   render() {

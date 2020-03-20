@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-spring/renderprops';
-import styles from '../App.module.css';
+
+import styles from '../styles.module.css';
 
 export default class DetailedStatisticsWrapper extends Component {
   render() {

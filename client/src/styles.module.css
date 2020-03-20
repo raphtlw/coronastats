@@ -25,6 +25,7 @@ https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400
   font-weight: 500;
   font-size: 2rem;
   color: var(--text-color);
+  padding-top: 0.2rem;
 }
 
 .mainDescription {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import styles from '../App.module.css';
-import Spacing from '../Spacing';
+
+import styles from '../styles.module.css';
+import { Spacing } from '.';
 
 export default class DetailedStatistics extends Component {
   render() {

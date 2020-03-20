@@ -1,13 +1,16 @@
-import Axios from 'axios';
 import React, { Component } from 'react';
-import MediaQuery from 'react-responsive';
 import PWAPrompt from 'react-ios-pwa-prompt';
-import './App.module.css';
-import DetailedStatistics from './DetailedStatistics';
-import Spacing from './Spacing';
-import Statistics from './Statistics';
-import TitleBar from './TitleBar';
-import DetailedStatisticsWrapper from './DetailedStatisticsWrapper';
+import MediaQuery from 'react-responsive';
+import Axios from 'axios';
+
+import '../styles.module.css';
+import {
+  DetailedStatistics,
+  DetailedStatisticsWrapper,
+  Spacing,
+  Statistics,
+  TitleBar
+} from '../components';
 
 export default class App extends Component {
   state = {
@@ -50,6 +53,8 @@ export default class App extends Component {
   render() {
     return (
       <div>
+        {/* Install Prompt */}
+        <PWAPrompt permanentlyHideOnDismiss={false} />
         {/* Mobile */}
         <MediaQuery maxDeviceWidth={1224}>
           <TitleBar />
@@ -108,7 +113,6 @@ export default class App extends Component {
             />
           </DetailedStatisticsWrapper>
           <Spacing />
-          <PWAPrompt permanentlyHideOnDismiss={false} />
         </MediaQuery>
         {/* Desktop */}
         <MediaQuery minDeviceWidth={1224}>
