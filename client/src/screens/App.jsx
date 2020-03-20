@@ -18,18 +18,18 @@ import {
 export default class App extends Component {
   state = {
     stats: {
-      cases: '',
-      deaths: '',
-      recovered: '',
+      cases: 'loading...',
+      deaths: 'loading...',
+      recovered: 'loading...',
       active: {
-        total: '',
-        mild: '',
-        serious: ''
+        total: 'loading...',
+        mild: 'loading...',
+        serious: 'loading...'
       },
       closed: {
-        total: '',
-        recovered: '',
-        deaths: ''
+        total: 'loading...',
+        recovered: 'loading...',
+        deaths: 'loading...'
       }
     },
     detailsShown1: false,
