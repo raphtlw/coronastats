@@ -3,13 +3,16 @@ import PWAPrompt from 'react-ios-pwa-prompt';
 import MediaQuery from 'react-responsive';
 import Axios from 'axios';
 
-import '../styles.module.css';
+import styles from '../styles.module.css';
 import {
   DetailedStatistics,
   DetailedStatisticsWrapper,
   Spacing,
   Statistics,
-  TitleBar
+  TitleBar,
+  NewsHeader,
+  NewsWrapper,
+  News
 } from '../components';
 
 export default class App extends Component {
@@ -58,61 +61,73 @@ export default class App extends Component {
         {/* Mobile */}
         <MediaQuery maxDeviceWidth={1224}>
           <TitleBar />
-          <Spacing />
-          <Statistics
-            name='total confirmed'
-            data={this.state.stats.cases}
-            color='#FF6262'
-          />
-          <Spacing />
-          <Statistics name='deaths' data={this.state.stats.deaths} />
-          <Spacing />
-          <Statistics
-            name='recovered'
-            data={this.state.stats.recovered}
-            color='#71FFAE'
-          />
-          <Spacing />
-          <Statistics
-            name='active'
-            data={this.state.stats.active.total}
-            color='#FFD371'
-            onClick={this.toggleDetails1}
-            tapMe={this.state.tapMe}
-          />
-          <DetailedStatisticsWrapper shown={this.state.detailsShown1}>
-            <DetailedStatistics
-              name='mild'
-              data={this.state.stats.active.mild}
-              color='#FFD371'
+          <Spacing height='1.2rem' />
+          <div className={styles.statisticsDiv}>
+            <Statistics
+              name='total confirmed'
+              data={this.state.stats.cases}
+              color='#FF6262'
             />
-            <DetailedStatistics
-              name='serious'
-              data={this.state.stats.active.serious}
-              color='#FFD371'
-            />
-          </DetailedStatisticsWrapper>
-          <Spacing />
-          <Statistics
-            name='closed'
-            data={this.state.stats.closed.total}
-            color='#71E5FF'
-            onClick={this.toggleDetails2}
-            tapMe={this.state.tapMe}
-          />
-          <DetailedStatisticsWrapper shown={this.state.detailsShown2}>
-            <DetailedStatistics
+            <Spacing />
+            <Statistics name='deaths' data={this.state.stats.deaths} />
+            <Spacing />
+            <Statistics
               name='recovered'
-              data={this.state.stats.closed.recovered}
-              color='#71E5FF'
+              data={this.state.stats.recovered}
+              color='#71FFAE'
             />
-            <DetailedStatistics
-              name='deaths'
-              data={this.state.stats.closed.deaths}
-              color='#71E5FF'
+            <Spacing />
+            <Statistics
+              name='active'
+              data={this.state.stats.active.total}
+              color='#FFD371'
+              onClick={this.toggleDetails1}
+              tapMe={this.state.tapMe}
             />
-          </DetailedStatisticsWrapper>
+            <DetailedStatisticsWrapper shown={this.state.detailsShown1}>
+              <DetailedStatistics
+                name='mild'
+                data={this.state.stats.active.mild}
+                color='#FFD371'
+              />
+              <DetailedStatistics
+                name='serious'
+                data={this.state.stats.active.serious}
+                color='#FFD371'
+              />
+            </DetailedStatisticsWrapper>
+            <Spacing />
+            <Statistics
+              name='closed'
+              data={this.state.stats.closed.total}
+              color='#71E5FF'
+              onClick={this.toggleDetails2}
+              tapMe={this.state.tapMe}
+            />
+            <DetailedStatisticsWrapper shown={this.state.detailsShown2}>
+              <DetailedStatistics
+                name='recovered'
+                data={this.state.stats.closed.recovered}
+                color='#71E5FF'
+              />
+              <DetailedStatistics
+                name='deaths'
+                data={this.state.stats.closed.deaths}
+                color='#71E5FF'
+              />
+            </DetailedStatisticsWrapper>
+          </div>
           <Spacing />
+          <div className={styles.newsDiv}>
+            <NewsHeader />
+            <NewsWrapper>
+              <News
+                source='cna'
+                title='Singapore launches TraceTogether mobile app to boost COVID-19 contact tracing efforts'
+                href='https://www.channelnewsasia.com/news/singapore/covid19-trace-together-mobile-app-contact-tracing-coronavirus-12560616'
+              />
+            </NewsWrapper>
+          </div>
         </MediaQuery>
         {/* Desktop */}
         <MediaQuery minDeviceWidth={1224}>

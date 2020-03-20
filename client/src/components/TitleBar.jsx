@@ -5,7 +5,7 @@ import styles from '../styles.module.css';
 export default class TitleBar extends Component {
   render() {
     return (
-      <div>
+      <div className={styles.titleBar}>
         <h1 className={styles.mainTitle}>CoronaStats</h1>
         <p className={styles.mainDescription}>
           A simple web app showing the statistics of COVID-19.

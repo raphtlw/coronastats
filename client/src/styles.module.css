@@ -1,11 +1,12 @@
 /*
 Fonts
-https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400;500&sidebar.open
+https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|Roboto+Mono:wght@400;500&sidebar.open
 */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Roboto+Mono:wght@400;500&display=swap');
 
 :global(:root) {
   --text-color: #f9f9f9;
+  --margin: 1rem 1.8rem;
 }
 
 :global(*) {
@@ -15,9 +16,23 @@ https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400
 }
 
 :global(body) {
-  margin: 1rem 1.8rem;
   font-family: Arial, Helvetica, sans-serif;
   background-color: #1c1c1c;
+}
+
+.link {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  text-decoration: none;
+}
+
+.titleBar {
+  margin: var(--margin);
 }
 
 .mainTitle {
@@ -34,6 +49,10 @@ https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400
   font-size: 1rem;
   color: var(--text-color);
   margin-top: 0.2rem;
+}
+
+.statisticsDiv {
+  margin: var(--margin);
 }
 
 .name,
@@ -81,4 +100,41 @@ https://fonts.google.com/?selection.family=Poppins:wght@500|Roboto+Mono:wght@400
   color: var(--text-color);
   font-weight: 400;
   font-size: 1rem;
+}
+
+.newsHeader {
+  color: var(--text-color);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  margin-right: 2rem;
+  font-weight: 400;
+  text-align: end;
+}
+
+.newsWrapper {
+  margin-top: 0.6rem;
+  background-color: rgb(238, 238, 238);
+  border-radius: 20px 20px 0px 0px;
+  padding: 1.8rem 1.2rem;
+}
+
+.news {
+  background-color: rgb(245, 245, 245);
+  border-radius: 8px;
+  padding: 1.2rem 1.2rem;
+  color: rgb(10, 10, 10);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.089);
+}
+
+.newsSource {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1.8px;
+  font-weight: 700;
+}
+
+.newsTitle {
+  margin-top: 0.2rem;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
