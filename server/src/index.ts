@@ -79,11 +79,11 @@ app.get('/news', (req, res) => {
       const result = [];
 
       titleElements.each((index, element) => {
-        const titleLink = `https://channelnewsasia.com/${$(element).attr(
+        const titleLink = `https://channelnewsasia.com${$(element).attr(
           'href'
         )}`;
         const title = $(element).text();
-        result.push({ title: title, link: titleLink });
+        result.push({ source: 'CNA', title: title, link: titleLink });
       });
 
       return result;

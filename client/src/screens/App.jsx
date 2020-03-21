@@ -32,6 +32,7 @@ export default class App extends Component {
         deaths: 'loading...'
       }
     },
+    news: [],
     detailsShown1: false,
     detailsShown2: false,
     tapMe: true
@@ -50,6 +51,9 @@ export default class App extends Component {
   componentDidMount = () => {
     Axios.get('https://coronastats-backend.herokuapp.com/stats').then(res =>
       this.setState({ stats: res.data })
+    );
+    Axios.get('https://coronastats-backend.herokuapp.com/news').then(res =>
+      this.setState({ news: res.data })
     );
   };
 
@@ -121,11 +125,11 @@ export default class App extends Component {
           <div className={styles.newsDiv}>
             <NewsHeader />
             <NewsWrapper>
-              <News
-                source='cna'
-                title='Singapore launches TraceTogether mobile app to boost COVID-19 contact tracing efforts'
-                href='https://www.channelnewsasia.com/news/singapore/covid19-trace-together-mobile-app-contact-tracing-coronavirus-12560616'
-              />
+              {this.state.news.map((item, index) => (
+                <News key={index} source={item.source} href={item.link}>
+                  {item.title}
+                </News>
+              ))}
             </NewsWrapper>
           </div>
         </MediaQuery>
