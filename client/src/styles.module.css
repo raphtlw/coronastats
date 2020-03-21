@@ -119,12 +119,17 @@ https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|
 }
 
 .news {
-  margin-top: 1rem;
   background-color: rgb(245, 245, 245);
-  border-radius: 8px;
+  border-radius: inherit;
   padding: 1.2rem 1.2rem;
   color: rgb(10, 10, 10);
   box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.089);
+  width: 100%;
+}
+
+.newsRipples {
+  border-radius: 8px;
+  width: 100%;
 }
 
 .newsSource {

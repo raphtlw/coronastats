@@ -12,7 +12,9 @@
     "react-dom": "^16.12.0",
     "react-ios-pwa-prompt": "^1.6.0",
     "react-responsive": "^8.0.3",
+    "react-ripples": "^2.2.1",
     "react-scripts": "3.4.0",
+    "react-scroll-to": "^3.0.0-beta.6",
     "react-spring": "^8.0.27"
   },
   "scripts": {

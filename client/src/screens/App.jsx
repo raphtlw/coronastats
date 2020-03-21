@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PWAPrompt from 'react-ios-pwa-prompt';
 import MediaQuery from 'react-responsive';
+import { ScrollTo } from 'react-scroll-to';
 import Axios from 'axios';
 
 import styles from '../styles.module.css';
@@ -38,6 +39,15 @@ export default class App extends Component {
     tapMe: true
   };
 
+  componentDidMount = () => {
+    Axios.get('https://coronastats-backend.herokuapp.com/stats').then(res =>
+      this.setState({ stats: res.data })
+    );
+    Axios.get('https://coronastats-backend.herokuapp.com/news').then(res =>
+      this.setState({ news: res.data })
+    );
+  };
+
   toggleDetails1 = () => {
     const { detailsShown1 } = this.state;
     this.setState({ detailsShown1: !detailsShown1, tapMe: false });
@@ -46,15 +56,6 @@ export default class App extends Component {
   toggleDetails2 = () => {
     const { detailsShown2 } = this.state;
     this.setState({ detailsShown2: !detailsShown2, tapMe: false });
-  };
-
-  componentDidMount = () => {
-    Axios.get('https://coronastats-backend.herokuapp.com/stats').then(res =>
-      this.setState({ stats: res.data })
-    );
-    Axios.get('https://coronastats-backend.herokuapp.com/news').then(res =>
-      this.setState({ news: res.data })
-    );
   };
 
   render() {
@@ -123,7 +124,11 @@ export default class App extends Component {
           </div>
           <Spacing />
           <div className={styles.newsDiv}>
-            <NewsHeader />
+            <ScrollTo>
+              {({ scroll }) => (
+                <NewsHeader onClick={() => scroll({ y: 700, smooth: true })} />
+              )}
+            </ScrollTo>
             <NewsWrapper>
               {this.state.news.map((item, index) => (
                 <News
