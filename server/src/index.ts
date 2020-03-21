@@ -2,6 +2,7 @@ import express from 'express';
 import cheerio from 'cheerio';
 import fetch from 'node-fetch';
 import cors from 'cors';
+import googleNewsAPI = require('google-news-json');
 
 const app = express();
 app.use(cors());
@@ -68,27 +69,39 @@ app.get('/stats', (req, res) => {
     .then(data => res.json(data));
 });
 
-app.get('/news', (req, res) => {
-  // CNA
-  fetch('https://www.channelnewsasia.com/news/topics/coronavirus-covid-19')
-    .then(res => res.text())
-    .then(body => {
-      const $ = cheerio.load(body);
-      const titleElements = $('.teaser__title');
+app.get('/news', async (req, res) => {
+  const newsJSON: any = await googleNewsAPI.getNews(
+    googleNewsAPI.SEARCH,
+    'corona virus'
+  );
 
-      const result = [];
+  const news: JSON[] = newsJSON.items.map(item => {
+    return {
+      source: 'Google News',
+      title: item.title,
+      link: item.link
+    };
+  });
 
-      titleElements.each((index, element) => {
-        const titleLink = `https://channelnewsasia.com${$(element).attr(
-          'href'
-        )}`;
-        const title = $(element).text();
-        result.push({ source: 'CNA', title: title, link: titleLink });
-      });
+  res.send(news);
+});
 
-      return result;
-    })
-    .then(data => res.json(data));
+app.get('/cna', async (req, res) => {
+  const body = await fetch(
+    'https://www.channelnewsasia.com/news/topics/coronavirus-covid-19'
+  ).then(res => res.text());
+  const $ = cheerio.load(body);
+  const titleElements = $('.teaser__title');
+
+  const result = [];
+
+  titleElements.each((index, element) => {
+    const titleLink = `https://channelnewsasia.com${$(element).attr('href')}`;
+    const title = $(element).text();
+    result.push({ source: 'CNA', title: title, link: titleLink });
+  });
+
+  res.json(result);
 });
 
 const PORT = process.env.PORT || 5000;

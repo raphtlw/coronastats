@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const cheerio_1 = __importDefault(require("cheerio"));
 const node_fetch_1 = __importDefault(require("node-fetch"));
 const cors_1 = __importDefault(require("cors"));
+const googleNewsAPI = require("google-news-json");
 const app = express_1.default();
 app.use(cors_1.default());
 app.get('/', (req, res) => {
@@ -59,21 +60,28 @@ app.get('/stats', (req, res) => {
     })
         .then(data => res.json(data));
 });
-app.get('/news', (req, res) => {
-    node_fetch_1.default('https://www.channelnewsasia.com/news/topics/coronavirus-covid-19')
-        .then(res => res.text())
-        .then(body => {
-        const $ = cheerio_1.default.load(body);
-        const titleElements = $('.teaser__title');
-        const result = [];
-        titleElements.each((index, element) => {
-            const titleLink = `https://channelnewsasia.com${$(element).attr('href')}`;
-            const title = $(element).text();
-            result.push({ source: 'CNA', title: title, link: titleLink });
-        });
-        return result;
-    })
-        .then(data => res.json(data));
+app.get('/news', async (req, res) => {
+    const newsJSON = await googleNewsAPI.getNews(googleNewsAPI.SEARCH, 'corona virus');
+    const news = newsJSON.items.map(item => {
+        return {
+            source: 'Google News',
+            title: item.title,
+            link: item.link
+        };
+    });
+    res.send(news);
+});
+app.get('/cna', async (req, res) => {
+    const body = await node_fetch_1.default('https://www.channelnewsasia.com/news/topics/coronavirus-covid-19').then(res => res.text());
+    const $ = cheerio_1.default.load(body);
+    const titleElements = $('.teaser__title');
+    const result = [];
+    titleElements.each((index, element) => {
+        const titleLink = `https://channelnewsasia.com${$(element).attr('href')}`;
+        const title = $(element).text();
+        result.push({ source: 'CNA', title: title, link: titleLink });
+    });
+    res.json(result);
 });
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
