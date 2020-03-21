@@ -126,10 +126,15 @@ export default class App extends Component {
             <NewsHeader />
             <NewsWrapper>
               {this.state.news.map((item, index) => (
-                <News key={index} source={item.source} href={item.link}>
+                <News
+                  key={index}
+                  source={item.source}
+                  onClick={() => window.open(item.link)}
+                >
                   {item.title}
                 </News>
               ))}
+              <Spacing height='0.8rem' />
             </NewsWrapper>
           </div>
         </MediaQuery>

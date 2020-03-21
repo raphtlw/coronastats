@@ -115,10 +115,11 @@ https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|
   margin-top: 0.6rem;
   background-color: rgb(238, 238, 238);
   border-radius: 20px 20px 0px 0px;
-  padding: 1.8rem 1.2rem;
+  padding: 0.6rem 1.2rem;
 }
 
 .news {
+  margin-top: 1rem;
   background-color: rgb(245, 245, 245);
   border-radius: 8px;
   padding: 1.2rem 1.2rem;
