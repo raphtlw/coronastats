@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PWAPrompt from 'react-ios-pwa-prompt';
-import MediaQuery from 'react-responsive';
 import { SmoothScroll } from '../lib';
 import Axios from 'axios';
 
@@ -72,90 +71,81 @@ export default class App extends Component {
       <div>
         {/* Install Prompt */}
         <PWAPrompt permanentlyHideOnDismiss={false} />
-        {/* Mobile */}
-        <MediaQuery maxDeviceWidth={1224}>
-          <TitleBar />
-          <Spacing height='1.2rem' />
-          <div className={styles.statisticsDiv}>
-            <Statistics
-              name='total confirmed'
-              data={this.state.stats.cases}
-              color='#FF6262'
-            />
-            <Spacing />
-            <Statistics name='deaths' data={this.state.stats.deaths} />
-            <Spacing />
-            <Statistics
-              name='recovered'
-              data={this.state.stats.recovered}
-              color='#71FFAE'
-            />
-            <Spacing />
-            <Statistics
-              name='active'
-              data={this.state.stats.active.total}
+        <TitleBar />
+        <Spacing height='1.2rem' />
+        <div className={styles.statisticsDiv}>
+          <Statistics
+            name='total confirmed'
+            data={this.state.stats.cases}
+            color='#FF6262'
+          />
+          <Spacing />
+          <Statistics name='deaths' data={this.state.stats.deaths} />
+          <Spacing />
+          <Statistics
+            name='recovered'
+            data={this.state.stats.recovered}
+            color='#71FFAE'
+          />
+          <Spacing />
+          <Statistics
+            name='active'
+            data={this.state.stats.active.total}
+            color='#FFD371'
+            onClick={this.toggleDetails1}
+            tapMe={this.state.tapMe}
+          />
+          <DetailedStatisticsWrapper shown={this.state.detailsShown1}>
+            <DetailedStatistics
+              name='mild'
+              data={this.state.stats.active.mild}
               color='#FFD371'
-              onClick={this.toggleDetails1}
-              tapMe={this.state.tapMe}
             />
-            <DetailedStatisticsWrapper shown={this.state.detailsShown1}>
-              <DetailedStatistics
-                name='mild'
-                data={this.state.stats.active.mild}
-                color='#FFD371'
-              />
-              <DetailedStatistics
-                name='serious'
-                data={this.state.stats.active.serious}
-                color='#FFD371'
-              />
-            </DetailedStatisticsWrapper>
-            <Spacing />
-            <Statistics
-              name='closed'
-              data={this.state.stats.closed.total}
+            <DetailedStatistics
+              name='serious'
+              data={this.state.stats.active.serious}
+              color='#FFD371'
+            />
+          </DetailedStatisticsWrapper>
+          <Spacing />
+          <Statistics
+            name='closed'
+            data={this.state.stats.closed.total}
+            color='#71E5FF'
+            onClick={this.toggleDetails2}
+            tapMe={this.state.tapMe}
+          />
+          <DetailedStatisticsWrapper shown={this.state.detailsShown2}>
+            <DetailedStatistics
+              name='recovered'
+              data={this.state.stats.closed.recovered}
               color='#71E5FF'
-              onClick={this.toggleDetails2}
-              tapMe={this.state.tapMe}
             />
-            <DetailedStatisticsWrapper shown={this.state.detailsShown2}>
-              <DetailedStatistics
-                name='recovered'
-                data={this.state.stats.closed.recovered}
-                color='#71E5FF'
-              />
-              <DetailedStatistics
-                name='deaths'
-                data={this.state.stats.closed.deaths}
-                color='#71E5FF'
-              />
-            </DetailedStatisticsWrapper>
-          </div>
-          <div id='scrollTo'>
-            <Spacing />
-          </div>
-          <div className={styles.newsDiv}>
-            <NewsHeader onClick={() => SmoothScroll.scrollTo('scrollTo')} />
-            <NewsWrapper>
-              {this.state.news.map((item, index) => (
-                <News
-                  key={index}
-                  source={item.source}
-                  onClick={() => window.open(item.link)}
-                >
-                  {item.title}
-                </News>
-              ))}
-              <Spacing height='0.8rem' />
-            </NewsWrapper>
-          </div>
-        </MediaQuery>
-        {/* Desktop */}
-        <MediaQuery minDeviceWidth={1224}>
-          <h1 style={{ color: 'white' }}>
-            Not supported for desktop yet. Please view on a mobile device :)
-          </h1>
-        </MediaQuery>
+            <DetailedStatistics
+              name='deaths'
+              data={this.state.stats.closed.deaths}
+              color='#71E5FF'
+            />
+          </DetailedStatisticsWrapper>
+        </div>
+        <div id='scrollTo'>
+          <Spacing />
+        </div>
+        <div className={styles.newsDiv}>
+          <NewsHeader onClick={() => SmoothScroll.scrollTo('scrollTo')} />
+          <NewsWrapper>
+            {this.state.news.map((item, index) => (
+              <News
+                key={index}
+                source={item.source}
+                onClick={() => window.open(item.link)}
+              >
+                {item.title}
+              </News>
+            ))}
+            <Spacing height='0.8rem' />
+          </NewsWrapper>
+        </div>
       </div>
     );
   }

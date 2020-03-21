@@ -10,12 +10,12 @@ export default class TitleBar extends Component {
         <p className={styles.mainDescription}>
           A simple web app which shows live statistics and news about COVID-19.
           Created by{' '}
-          <a
-            className={`${styles.raphtlw} ${styles.link}`}
-            href='https://twitter.com/raphtlw'
+          <span
+            onClick={() => window.open('https://twitter.com/raphtlw')}
+            className={styles.raphtlw}
           >
             raphtlw
-          </a>
+          </span>
         </p>
       </div>
     );

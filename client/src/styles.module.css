@@ -20,16 +20,6 @@ https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|
   background-color: #1c1c1c;
 }
 
-.link {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
 .titleBar {
   margin: var(--margin);
 }
@@ -52,6 +42,7 @@ https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|
 
 .raphtlw {
   color: var(--text-color);
+  text-decoration: underline;
 }
 
 .raphtlw:hover {
