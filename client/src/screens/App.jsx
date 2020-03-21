@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PWAPrompt from 'react-ios-pwa-prompt';
 import MediaQuery from 'react-responsive';
-import { ScrollTo } from 'react-scroll-to';
+import { SmoothScroll } from '../lib';
 import Axios from 'axios';
 
 import styles from '../styles.module.css';
@@ -40,6 +40,15 @@ export default class App extends Component {
   };
 
   componentDidMount = () => {
+    this.updateInformation();
+    this.interval = setInterval(this.updateInformation, 1 * 60000);
+  };
+
+  componentWillUnmount = () => {
+    clearInterval(this.interval);
+  };
+
+  updateInformation = () => {
     Axios.get('https://coronastats-backend.herokuapp.com/stats').then(res =>
       this.setState({ stats: res.data })
     );
@@ -122,13 +131,11 @@ export default class App extends Component {
               />
             </DetailedStatisticsWrapper>
           </div>
-          <Spacing />
+          <div id='scrollTo'>
+            <Spacing />
+          </div>
           <div className={styles.newsDiv}>
-            <ScrollTo>
-              {({ scroll }) => (
-                <NewsHeader onClick={() => scroll({ y: 700, smooth: true })} />
-              )}
-            </ScrollTo>
+            <NewsHeader onClick={() => SmoothScroll.scrollTo('scrollTo')} />
             <NewsWrapper>
               {this.state.news.map((item, index) => (
                 <News
