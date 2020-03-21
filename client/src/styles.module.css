@@ -28,7 +28,6 @@ https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  text-decoration: none;
 }
 
 .titleBar {
@@ -49,6 +48,14 @@ https://fonts.google.com/specimen/Poppins?selection.family=Poppins:wght@400;500|
   font-size: 1rem;
   color: var(--text-color);
   margin-top: 0.2rem;
+}
+
+.raphtlw {
+  color: var(--text-color);
+}
+
+.raphtlw:hover {
+  cursor: pointer;
 }
 
 .statisticsDiv {

@@ -9,6 +9,13 @@ export default class TitleBar extends Component {
         <h1 className={styles.mainTitle}>CoronaStats</h1>
         <p className={styles.mainDescription}>
           A simple web app which shows live statistics and news about COVID-19.
+          Created by{' '}
+          <a
+            className={`${styles.raphtlw} ${styles.link}`}
+            href='https://twitter.com/raphtlw'
+          >
+            raphtlw
+          </a>
         </p>
       </div>
     );
