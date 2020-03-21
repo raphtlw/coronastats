@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "removeComments": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "node",
+    "watch": true,
+    "outDir": "."
+  },
+
+  "include": [
+    "./src/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ]
+}
