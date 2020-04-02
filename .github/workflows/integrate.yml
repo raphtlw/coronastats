@@ -1,4 +1,4 @@
-name: Node Continuous Integration
+name: CI/CD
 on:
   push:
     branches:
