@@ -28,18 +28,20 @@
       name="description"
       content="Efficient and beautiful statistics for COVID-19"
     />
-    <!-- <script async="true">
-      let deferredPrompt;
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-163388407-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
 
-      window.addEventListener('beforeInstallPrompt', e => {
-        // Prevent the mini-infobar from appearing on mobile
-        e.preventDefault();
-        // Stash the event so it can be triggered later.
-        deferredPrompt = e;
-        // Update UI notify the user they can install the PWA
-        showInstallPromotion();
-      });
-    </script> -->
+      gtag('config', 'UA-163388407-1');
+    </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
