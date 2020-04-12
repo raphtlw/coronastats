@@ -17,8 +17,8 @@ app.get('/beans', (req, res) => {
 
 app.get('/stats', (req, res) => {
   fetch('https://www.worldometers.info/coronavirus/')
-    .then(res => res.text())
-    .then(body => {
+    .then((res) => res.text())
+    .then((body) => {
       const $ = cheerio.load(body);
 
       // Selector helpers
@@ -57,29 +57,45 @@ app.get('/stats', (req, res) => {
         active: {
           total: active,
           mild: activeMild,
-          serious: activeSerious
+          serious: activeSerious,
         },
         closed: {
           total: closed,
           recovered: closedRecovered,
-          deaths: closedDeaths
-        }
+          deaths: closedDeaths,
+        },
       };
     })
-    .then(data => res.json(data));
+    .then((data) => res.json(data));
 });
 
+const shuffleArray = (array: any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+};
+
 app.get('/news', async (req, res) => {
-  const newsJSON: any = await googleNewsAPI.getNews(
+  const news_1: any = await googleNewsAPI.getNews(
     googleNewsAPI.SEARCH,
     'corona virus'
   );
 
-  const news: JSON[] = newsJSON.items.map(item => {
+  const news_2: any = await googleNewsAPI.getNews(
+    googleNewsAPI.SEARCH,
+    'pandemic'
+  );
+
+  const totalNews = news_1.items.concat(news_2.items);
+
+  shuffleArray(totalNews);
+
+  const news: any[] = totalNews.map((item) => {
     return {
       source: 'Google News',
       title: item.title,
-      link: item.link
+      link: item.link,
     };
   });
 
@@ -89,7 +105,7 @@ app.get('/news', async (req, res) => {
 app.get('/cna', async (req, res) => {
   const body = await fetch(
     'https://www.channelnewsasia.com/news/topics/coronavirus-covid-19'
-  ).then(res => res.text());
+  ).then((res) => res.text());
   const $ = cheerio.load(body);
   const titleElements = $('.teaser__title');
 
