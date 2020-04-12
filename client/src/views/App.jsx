@@ -138,7 +138,7 @@ export default class App extends Component {
               <News
                 key={index}
                 source={item.source}
-                onClick={() => window.open(item.link)}
+                onClick={() => setTimeout(() => window.open(item.link), 100)}
               >
                 {item.title}
               </News>
