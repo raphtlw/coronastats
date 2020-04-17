@@ -74,18 +74,18 @@ export default class App extends Component {
         <TitleBar />
         <Spacing height='1.2rem' />
         <div className='App-statistics'>
-          <Statistics
-            name='total confirmed'
-            data={this.state.stats.cases}
-            color='#71FFAE'
-          />
+          <Statistics name='total confirmed' data={this.state.stats.cases} />
           <Spacing />
-          <Statistics name='deaths' data={this.state.stats.deaths} />
+          <Statistics
+            name='deaths'
+            data={this.state.stats.deaths}
+            color='#FF6262'
+          />
           <Spacing />
           <Statistics
             name='recovered'
             data={this.state.stats.recovered}
-            color='#FF6262'
+            color='#71FFAE'
           />
           <Spacing />
           <Statistics
