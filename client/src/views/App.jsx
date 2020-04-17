@@ -77,7 +77,7 @@ export default class App extends Component {
           <Statistics
             name='total confirmed'
             data={this.state.stats.cases}
-            color='#FF6262'
+            color='#71FFAE'
           />
           <Spacing />
           <Statistics name='deaths' data={this.state.stats.deaths} />
@@ -85,7 +85,7 @@ export default class App extends Component {
           <Statistics
             name='recovered'
             data={this.state.stats.recovered}
-            color='#71FFAE'
+            color='#FF6262'
           />
           <Spacing />
           <Statistics
