@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import fetch from 'node-fetch';
 import SmoothScrolling from '../lib/smoothScroll';
 import FadeIn from 'react-fade-in';
+import { useSpring } from 'react-spring';
 
 import TitleBar from '../components/TitleBar';
 import Spacing from '../components/Spacing';
@@ -50,6 +51,8 @@ export default () => {
       clearInterval(interval);
     };
   }, []);
+
+  const [, setY] = useSpring(() => ({ y: 0 }));
 
   return (
     <Styles>
@@ -115,11 +118,19 @@ export default () => {
             </DetailedStatisticsWrapper>
           </FadeIn>
         </div>
-        <div id='scrollTo'>
-          <Spacing />
-        </div>
+        <Spacing />
         <div>
-          <NewsHeader onClick={() => SmoothScrolling.scrollTo('scrollTo')} />
+          <NewsHeader
+            onClick={() => {
+              setY({
+                y: 700,
+                reset: true,
+                from: { y: window.scrollY },
+                // @ts-ignore
+                onFrame: (props) => window.scroll(0, props.y),
+              });
+            }}
+          />
           <NewsWrapper>
             {news.map((item, index) => (
               <News

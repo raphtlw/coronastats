@@ -13,10 +13,10 @@ const Styles = styled.div`
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.089);
     width: 100%;
     cursor: pointer;
-    transition: all ease-out 0.1s;
+    transition: all ease-in-out 0.05s;
   }
   .main:active {
-    transform: scale(0.995);
+    transform: scale(0.99);
     box-shadow: 0px 0px 0px transparent;
   }
   .source {

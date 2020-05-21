@@ -15,7 +15,7 @@ interface Props {
 export default ({ children, shown }: Props) => {
   const transitions = useTransition(shown, null, {
     from: { opacity: 0, height: 0 },
-    enter: { opacity: 1, height: 160 },
+    enter: { opacity: 1, height: 170 },
     leave: { opacity: 0, height: 0 },
   });
   return (
