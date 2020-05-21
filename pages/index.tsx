@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import fetch from 'node-fetch';
-import SmoothScrolling from '../lib/smoothScroll';
 import FadeIn from 'react-fade-in';
 import { useSpring } from 'react-spring';
+import { v4 as uuid } from 'uuid';
 
 import TitleBar from '../components/TitleBar';
 import Spacing from '../components/Spacing';
@@ -132,9 +132,9 @@ export default () => {
             }}
           />
           <NewsWrapper>
-            {news.map((item, index) => (
+            {news.map((item) => (
               <News
-                key={index}
+                key={uuid()}
                 source={item.source}
                 onClick={() => window.open(item.link)}
               >

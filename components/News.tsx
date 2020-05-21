@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { LazyLoadComponent } from 'react-lazy-load-image-component';
 import FadeIn from 'react-fade-in';
+import {
+  LazyLoadComponent,
+  trackWindowScroll,
+} from 'react-lazy-load-image-component';
 
 import Spacing from './Spacing';
 
@@ -33,10 +36,10 @@ const Styles = styled.div`
   }
 `;
 
-export default (props) => {
+const News = (props) => {
   return (
     <Styles>
-      <LazyLoadComponent>
+      <LazyLoadComponent scrollPosition={props.scrollPosition}>
         <FadeIn>
           <Spacing height='1rem' />
           <div className='main' onClick={props.onClick}>
@@ -48,3 +51,5 @@ export default (props) => {
     </Styles>
   );
 };
+
+export default trackWindowScroll(News);
