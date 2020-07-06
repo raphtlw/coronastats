@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import fetch from 'node-fetch';
 import FadeIn from 'react-fade-in';
 import { useSpring } from 'react-spring';
-import { v4 as uuid } from 'uuid';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
 import TitleBar from '../components/TitleBar';
 import Spacing from '../components/Spacing';
@@ -35,21 +35,26 @@ export default () => {
   const [detailsShown2, setDetailsShown2] = useState(false);
   const [tapMe, setTapMe] = useState(true);
 
-  const updateInformation = () => {
+  const fetchStats = () => {
     fetch('/api/stats')
       .then((res) => res.json())
       .then((res) => setStats(res));
+  };
+
+  const fetchNews = () => {
     fetch('/api/news')
       .then((res) => res.json())
-      .then((res) => setNews(res));
+      .then((res: any[]) => {
+        const lessNews = res.slice(0, 10);
+        setNews([...news, ...lessNews]);
+      });
   };
 
   useEffect(() => {
-    updateInformation();
-    const interval = setInterval(updateInformation, 60000);
-    return () => {
-      clearInterval(interval);
-    };
+    fetchStats();
+    fetchNews();
+    const interval = setInterval(fetchStats, 60000);
+    return () => clearInterval(interval);
   }, []);
 
   const [, setY] = useSpring(() => ({ y: 0 }));
@@ -132,15 +137,23 @@ export default () => {
             }}
           />
           <NewsWrapper>
-            {news.map((item) => (
-              <News
-                key={uuid()}
-                source={item.source}
-                onClick={() => window.open(item.link)}
-              >
-                {item.title}
-              </News>
-            ))}
+            <InfiniteScroll
+              dataLength={news.length}
+              next={fetchNews}
+              hasMore={true}
+              loader={<h4>Loading...</h4>}
+              endMessage={<p>Yay! You have seen it all ✅</p>}
+            >
+              {news.map((item, index) => (
+                <News
+                  key={index}
+                  source={item.source}
+                  onClick={() => window.open(item.link)}
+                >
+                  {item.title}
+                </News>
+              ))}
+            </InfiniteScroll>
             <Spacing height='0.8rem' />
           </NewsWrapper>
         </div>
