@@ -11,7 +11,7 @@
     "a11y-react-emoji": "^1.1.2",
     "cheerio": "^1.0.0-rc.3",
     "google-news-json": "^1.0.3",
-    "next": "9.4.1",
+    "next": "13.0.3",
     "next-pwa": "^2.4.1",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",
